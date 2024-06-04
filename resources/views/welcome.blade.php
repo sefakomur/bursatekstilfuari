@@ -130,4 +130,22 @@
             </div>
         </div>
     </body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        fetch('https://api.tuyap.online/api/auth/login', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        Name: 'tuyapservis',
+        Password: '002387typ'
+    })
+})
+.then(response => response.json())
+.then(data => {
+    localStorage.setItem('authToken', data.token);
+})
+.catch(error => console.error('Error:', error));
+    </script>
 </html>
